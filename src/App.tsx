@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from './App.module.scss';
+import { Header } from './layouts/header/header.layout';
 
 function App() {
   return (
-    <div className={styles['app']}>
-      <header>hello world</header>
-    </div>
+    <>
+      <Header />
+    </>
   );
 }
 
