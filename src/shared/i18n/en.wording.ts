@@ -12,5 +12,9 @@ export const WORDING = {
 All the best,
 Allison and Jeremy`,
     },
+
+    DOCUMENT: {
+      EMPTY_STATE_TEXT: "You haven't generated any documents yet",
+    },
   },
 };

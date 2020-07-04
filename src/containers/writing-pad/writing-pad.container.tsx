@@ -5,6 +5,7 @@ import { ReactComponent as LoadingIcon } from "../../assets/svgs/loading.icon.sv
 import { generateDocument } from "./writing-pad.service";
 import { WORDING } from "../../shared/i18n/en.wording";
 import { Button } from "../../components/button/button.component";
+import { ReactComponent as EmptyState } from "../../assets/svgs/empty-state.svg";
 
 const t = WORDING.WRITING_PAD;
 
@@ -42,7 +43,7 @@ export const WritingPad = () => {
           }
         />
         <div className={styles["writing-pad__actions"]}>
-          <Button onClick={getDocument}>
+          <Button onClick={getDocument} isLoading={loading}>
             {t.TEXT_AREA.ACTIONS.GENERATE_BTN}
           </Button>
         </div>
@@ -50,7 +51,20 @@ export const WritingPad = () => {
       {loading ? (
         <LoadingIcon />
       ) : (
-        <iframe src={documentURL} frameBorder="0" title="generated document" />
+        <div className={styles["writing-pad__document"]}>
+          {documentURL ? (
+            <iframe
+              src={documentURL}
+              frameBorder="0"
+              title="generated document"
+            />
+          ) : (
+            <>
+              <EmptyState className={styles["writing-pad__empty-state"]} />
+              <p>{t.DOCUMENT.EMPTY_STATE_TEXT}</p>
+            </>
+          )}
+        </div>
       )}
     </div>
   );
