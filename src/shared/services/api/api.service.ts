@@ -5,7 +5,7 @@ const baseURL = "https://vigilant-jang-264104.netlify.app/.netlify/functions";
 
 export interface DocumentGenerationOptions {
   fontId?: string;
-  fontSize?: number;
+  fontSize?: string;
   documentWidth?: string;
   documentHeight?: string;
   randomSeed?: number;
@@ -27,7 +27,7 @@ export default {
    */
   getPdfDocument: (
     text: string,
-    documentOptions: DocumentGenerationOptions = {}
+    documentOptions: DocumentGenerationOptions
   ): Promise<Result<Blob>> => {
     return api
       .post<Result<Blob>>("pdf", {
