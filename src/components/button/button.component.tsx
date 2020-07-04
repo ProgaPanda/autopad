@@ -13,14 +13,14 @@ const StyledButton = styled.button`
   border: 0;
   color: #fff;
   background: ${theme.colors.secondary};
-  box-shadow: 0px 3px 14px 0px ${theme.colors.accent};;
-
+  box-shadow: 0px 3px 14px 0px ${theme.colors.accent};
 
   :hover {
     background: ${theme.colors.secondary_200};
 
     cursor: ${({ isLoading }: ButtonProps) =>
-      isLoading ? "not-allowed" : "pointer"}
+      isLoading ? "not-allowed" : "pointer"};
+  }
   :focus {
     outline-color: ${theme.colors.primary};
   }
