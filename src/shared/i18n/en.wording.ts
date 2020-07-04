@@ -1,6 +1,8 @@
 export const WORDING = {
+  LOGO: "autopad",
   WRITING_PAD: {
     TEXT_AREA: {
+      PLACEHOLDER: "Write here",
       ACTIONS: {
         GENERATE_BTN: "Generate document",
       },

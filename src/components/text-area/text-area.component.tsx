@@ -1,7 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { theme } from "../../assets/styles/theme";
+import { WORDING } from "../../shared/i18n/en.wording";
 
+const t = WORDING.WRITING_PAD.TEXT_AREA;
 const StyledTextArea = styled.textarea`
   height: 100%;
   width: 100%;
@@ -28,7 +30,7 @@ export const TextArea: React.FC<TextAreaProps> = ({ text, onChange }) => {
       name="Writing pad"
       value={text}
       onChange={onChange}
-      placeholder="Write here"
+      placeholder={t.PLACEHOLDER}
     />
   );
 };
