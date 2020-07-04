@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Result, isSuccess } from "../error/error.service";
 
 const baseURL = "https://vigilant-jang-264104.netlify.app/.netlify/functions";
 
@@ -22,12 +23,24 @@ export default {
    * Returns generated pdf document with the text provided
    * @param {string} text
    * @param {DocumentGenerationOptions} documentOptions
-   * @returns {Promise}
+   * @returns {Promise<Result<Blob>>}
    */
   getPdfDocument: (
     text: string,
     documentOptions: DocumentGenerationOptions = {}
-  ) => {
-    return api.post("pdf", { text, ...documentOptions });
+  ): Promise<Result<Blob>> => {
+    return api
+      .post<Result<Blob>>("pdf", {
+        text,
+        ...documentOptions,
+      })
+      .then((response) => {
+        if (isSuccess(response)) {
+          return response.data;
+        }
+      })
+      .catch((err) => {
+        return err;
+      });
   },
 };
