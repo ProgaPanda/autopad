@@ -24,12 +24,16 @@ export const WritingPad = () => {
         fontSize: "14pt",
         wordSpacingVariance: 0.5,
         lineSpacingVariance: 0.5,
-      }).then((documentURL) => {
-        if (documentURL) {
-          setDocumentURL(documentURL);
+      })
+        .then((documentURL) => {
+          if (documentURL) {
+            setDocumentURL(documentURL);
+            setloading(false);
+          }
+        })
+        .catch(() => {
           setloading(false);
-        }
-      });
+        });
     }
   };
 
