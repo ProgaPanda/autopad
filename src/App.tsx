@@ -1,13 +1,14 @@
 import React from "react";
+import { MainLayout } from "./layouts/main-layout/main-layout";
 import { Header } from "./layouts/header/header.layout";
 import { WritingPad } from "./containers/writing-pad/writing-pad.container";
 
 function App() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
+    <MainLayout>
       <Header />
       <WritingPad />
-    </div>
+    </MainLayout>
   );
 }
 
