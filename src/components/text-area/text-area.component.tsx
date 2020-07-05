@@ -31,6 +31,7 @@ export const TextArea: React.FC<TextAreaProps> = ({ text, onChange }) => {
       value={text}
       onChange={onChange}
       placeholder={t.PLACEHOLDER}
+      aria-label={t.PLACEHOLDER}
     />
   );
 };
