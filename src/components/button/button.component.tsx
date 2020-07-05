@@ -39,6 +39,7 @@ export const Button: React.FC<ButtonProps> = ({
   onClick,
   isLoading,
   children,
+  ...props
 }) => {
   const handleClick = () => {
     if (!isLoading) {
@@ -47,7 +48,7 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <StyledButton onClick={handleClick} isLoading={isLoading}>
+    <StyledButton onClick={handleClick} isLoading={isLoading} {...props}>
       {children}
     </StyledButton>
   );
