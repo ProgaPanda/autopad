@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { theme } from "../../assets/styles/theme";
-import { WORDING } from "../../shared/i18n/en.wording";
+import { theme } from "../../../../assets/styles/theme";
+import { WORDING } from "../../../../shared/i18n/en.wording";
 
 const t = WORDING.WRITING_PAD.TEXT_AREA;
 const StyledTextArea = styled.textarea`

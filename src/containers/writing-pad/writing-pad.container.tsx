@@ -1,38 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useReducer } from "react";
 import styles from "./writing-pad.module.scss";
-import { TextArea } from "../../components/text-area/text-area.component";
+import { TextArea } from "./components/text-area/text-area.component";
 import { ReactComponent as LoadingIcon } from "../../assets/svgs/loading.icon.svg";
-import { generateDocument } from "./writing-pad.service";
+import { ReactComponent as EmptyState } from "../../assets/svgs/empty-state.svg";
+import {
+  generateDocument,
+  optionsReducer,
+  initialOptions,
+} from "./writing-pad.service";
 import { WORDING } from "../../shared/i18n/en.wording";
 import { Button } from "../../components/button/button.component";
-import { ReactComponent as EmptyState } from "../../assets/svgs/empty-state.svg";
+import { OptionsController } from "./components/options-controller/options-controller.component";
 
 const t = WORDING.WRITING_PAD;
 
 export const WritingPad = () => {
   const [text, setText] = useState(t.TEXT_AREA.INITIAL_TEXT);
+  const [documentOptions, optionsDispatcher] = useReducer(
+    optionsReducer,
+    initialOptions
+  );
+
   const [documentURL, setDocumentURL] = useState("");
-  const [loading, setloading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const getDocument = () => {
     if (text) {
-      setloading(true);
-      generateDocument(text, {
-        fontId: "8X3WPZ4800AT",
-        documentHeight: "842pt",
-        documentWidth: "595pt",
-        fontSize: "14pt",
-        wordSpacingVariance: 0.5,
-        lineSpacingVariance: 0.5,
-      })
+      setLoading(true);
+      generateDocument(text, documentOptions)
         .then((documentURL) => {
           if (documentURL) {
             setDocumentURL(documentURL);
-            setloading(false);
           }
         })
-        .catch(() => {
-          setloading(false);
+        .finally(() => {
+          setLoading(false);
         });
     }
   };
@@ -40,6 +42,7 @@ export const WritingPad = () => {
   return (
     <div className={styles["writing-pad"]}>
       <div className={styles["writing-pad__textarea"]}>
+        <OptionsController dispatcher={optionsDispatcher} />
         <TextArea
           text={text}
           onChange={(event: React.ChangeEvent<HTMLTextAreaElement>) =>
