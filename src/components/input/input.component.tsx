@@ -12,6 +12,7 @@ const disabledPartial = css`
 const StyledInputContainer = styled.div`
   display: flex;
   min-width: 100px;
+  border-radius: 5px 0 0 5px;
 `;
 
 const StyledInput = styled.input<InputProps>`
@@ -20,6 +21,7 @@ const StyledInput = styled.input<InputProps>`
   background: #fff;
   min-width: 100px;
   font-size: 0.8rem;
+  border-radius: 5px 0 0 5px;
 
   ${(props: InputProps) => props.disabled && disabledPartial}
 
@@ -32,9 +34,12 @@ const StyledPrefix = styled.div`
   padding: 1rem;
   background: #fff;
   font-size: 0.8rem;
+  border-radius: 5px 0 0 5px;
 `;
 
-const StyledSuffix = StyledPrefix;
+const StyledSuffix = styled(StyledPrefix)`
+  border-radius: 0 5px 5px 0;
+`;
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   initialValue?: string | number;

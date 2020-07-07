@@ -37,6 +37,7 @@ export const initialOptions: DocumentGenerationOptions = {
   documentHeight: "842pt",
   documentWidth: "595pt",
   fontSize: "14pt",
+  fontColor: "(0, 0, 0, 1)",
   wordSpacingVariance: 0.5,
   lineSpacingVariance: 0.5,
   randomSeed: -1,
@@ -45,7 +46,8 @@ export const initialOptions: DocumentGenerationOptions = {
 
 type OptionsAction =
   | { type: "DOCUMENT_WIDTH"; value: string }
-  | { type: "DOCUMENT_HEIGHT"; value: string };
+  | { type: "DOCUMENT_HEIGHT"; value: string }
+  | { type: "FONT_COLOR"; value: string };
 
 /**
  * document options reducer
@@ -56,7 +58,7 @@ type OptionsAction =
 export const optionsReducer = (
   state: DocumentGenerationOptions,
   action: OptionsAction
-) => {
+): DocumentGenerationOptions => {
   switch (action.type) {
     case "DOCUMENT_WIDTH":
       return {
@@ -67,6 +69,12 @@ export const optionsReducer = (
       return {
         ...state,
         documentHeight: action.value,
+      };
+
+    case "FONT_COLOR":
+      return {
+        ...state,
+        fontColor: action.value,
       };
 
     default:

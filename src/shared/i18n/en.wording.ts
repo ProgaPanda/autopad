@@ -16,8 +16,8 @@ Allison and Jeremy`,
     },
 
     OPTIONS_CONTROLLER: {
-      DOCUMENT_HEIGHT: "Document height",
-      DOCUMENT_WIDTH: "Document width",
+      DOCUMENT_HEIGHT: "Height",
+      DOCUMENT_WIDTH: "Width",
     },
 
     DOCUMENT: {

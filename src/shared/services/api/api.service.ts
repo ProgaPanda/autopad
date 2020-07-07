@@ -6,6 +6,7 @@ const baseURL = "https://vigilant-jang-264104.netlify.app/.netlify/functions";
 export interface DocumentGenerationOptions {
   fontId?: string;
   fontSize?: string;
+  fontColor?: string;
   documentWidth?: string;
   documentHeight?: string;
   randomSeed?: number;
