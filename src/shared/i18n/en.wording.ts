@@ -15,7 +15,10 @@ All the best,
 Allison and Jeremy`,
     },
 
-    OPTIONS_CONTROLLER: {},
+    OPTIONS_CONTROLLER: {
+      DOCUMENT_HEIGHT: "Document height",
+      DOCUMENT_WIDTH: "Document width",
+    },
 
     DOCUMENT: {
       EMPTY_STATE_TEXT: "You haven't generated any documents yet",

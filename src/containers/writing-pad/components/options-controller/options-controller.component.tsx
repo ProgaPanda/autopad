@@ -30,7 +30,7 @@ export const OptionsController: React.FC<OptionsControllerProps> = ({
   return (
     <StyledOptionsController>
       <Input
-        placeholder="Document height"
+        placeholder={t.DOCUMENT_HEIGHT}
         type="number"
         onChange={(e) =>
           dispatcher({
@@ -41,7 +41,7 @@ export const OptionsController: React.FC<OptionsControllerProps> = ({
         suffix="px"
       />
       <Input
-        placeholder="Document width"
+        placeholder={t.DOCUMENT_WIDTH}
         type="number"
         onChange={(e) =>
           dispatcher({
