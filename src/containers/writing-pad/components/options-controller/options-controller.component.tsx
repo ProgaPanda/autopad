@@ -56,6 +56,7 @@ export const OptionsController: React.FC<OptionsControllerProps> = ({
         <StyledOptionLabel>Height</StyledOptionLabel>
         <Input
           placeholder={t.DOCUMENT_HEIGHT}
+          initialValue="842"
           type="number"
           onChange={(e) =>
             dispatcher({
@@ -64,13 +65,14 @@ export const OptionsController: React.FC<OptionsControllerProps> = ({
             })
           }
           suffix="px"
-        />{" "}
+        />
       </StyledOption>
 
       <StyledOption>
         <StyledOptionLabel>Width</StyledOptionLabel>
         <Input
           placeholder={t.DOCUMENT_WIDTH}
+          initialValue="595"
           type="number"
           onChange={(e) =>
             dispatcher({
