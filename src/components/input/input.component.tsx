@@ -12,22 +12,28 @@ const disabledPartial = css`
 const StyledInputContainer = styled.div`
   display: flex;
   min-width: 100px;
-  border-radius: 5px 0 0 5px;
+  border: 2px solid ${theme.colors.accent};
+  border-radius: 5px;
+
+  :focus-within {
+    border-color: ${theme.colors.secondary};
+  }
 `;
 
 const StyledInput = styled.input<InputProps>`
   padding: 1rem 1.5rem;
   border: 0;
   background: #fff;
+  flex: 1;
   min-width: 100px;
   font-size: 0.8rem;
   border-radius: 5px 0 0 5px;
 
-  ${(props: InputProps) => props.disabled && disabledPartial}
-
   :focus {
-    outline-color: ${theme.colors.secondary};
+    outline: 0;
   }
+
+  ${(props: InputProps) => props.disabled && disabledPartial}
 `;
 
 const StyledPrefix = styled.div`

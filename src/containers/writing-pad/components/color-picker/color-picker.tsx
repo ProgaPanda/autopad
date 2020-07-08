@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import { CirclePicker } from "react-color";
 import styled from "styled-components";
+import { theme } from "../../../../assets/styles/theme";
 
 const StyledPickerContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   min-width: 0;
   height: 100%;
+  padding: 0.5rem 0;
   background: #fff;
+  border: 2px solid ${theme.colors.accent};
   border-radius: 5px;
 
   .circle-picker {
-    max-width: fit-content;
+    flex: 1;
+    justify-content: space-evenly;
   }
 `;
 

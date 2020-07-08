@@ -44,7 +44,7 @@ export const initialOptions: DocumentGenerationOptions = {
   lineSpacing: 1.5,
 };
 
-type OptionsAction =
+export type OptionsAction =
   | { type: "DOCUMENT_WIDTH"; value: string }
   | { type: "DOCUMENT_HEIGHT"; value: string }
   | { type: "FONT_COLOR"; value: string };
