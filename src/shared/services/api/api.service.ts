@@ -5,10 +5,10 @@ const baseURL = "https://vigilant-jang-264104.netlify.app/.netlify/functions";
 
 export interface DocumentGenerationOptions {
   fontId?: string;
-  fontSize?: string;
+  fontSize?: number;
   fontColor?: string;
-  documentWidth?: string;
-  documentHeight?: string;
+  documentWidth?: number;
+  documentHeight?: number;
   randomSeed?: number;
   wordSpacingVariance?: number;
   lineSpacingVariance?: number;
@@ -30,10 +30,14 @@ export default {
     text: string,
     documentOptions: DocumentGenerationOptions
   ): Promise<Result<Blob>> => {
+    const { documentHeight, documentWidth, fontSize } = documentOptions;
     return api
       .post<Result<Blob>>("pdf", {
         text,
         ...documentOptions,
+        documentHeight: `${documentHeight}pt`,
+        documentWidth: `${documentWidth}pt`,
+        fontSize: `${fontSize}pt`,
       })
       .then((response) => {
         if (isSuccess(response)) {

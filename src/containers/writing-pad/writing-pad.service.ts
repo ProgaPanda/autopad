@@ -34,9 +34,9 @@ export const generateDocument = (
  */
 export const initialOptions: DocumentGenerationOptions = {
   fontId: "8X3WPZ4800AT",
-  documentHeight: "842pt",
-  documentWidth: "595pt",
-  fontSize: "14pt",
+  documentHeight: 842,
+  documentWidth: 595,
+  fontSize: 14,
   fontColor: "(0, 0, 0, 1)",
   wordSpacingVariance: 0.5,
   lineSpacingVariance: 0.5,
@@ -45,8 +45,8 @@ export const initialOptions: DocumentGenerationOptions = {
 };
 
 export type OptionsAction =
-  | { type: "DOCUMENT_WIDTH"; value: string }
-  | { type: "DOCUMENT_HEIGHT"; value: string }
+  | { type: "DOCUMENT_WIDTH"; value: number }
+  | { type: "DOCUMENT_HEIGHT"; value: number }
   | { type: "FONT_COLOR"; value: string };
 
 /**

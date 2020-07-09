@@ -61,7 +61,7 @@ export const OptionsController: React.FC<OptionsControllerProps> = ({
           onChange={(e) =>
             dispatcher({
               type: "DOCUMENT_HEIGHT",
-              value: `${e.target?.value}pt`,
+              value: Number(e.target?.value),
             })
           }
           suffix="px"
@@ -77,7 +77,7 @@ export const OptionsController: React.FC<OptionsControllerProps> = ({
           onChange={(e) =>
             dispatcher({
               type: "DOCUMENT_WIDTH",
-              value: `${e.target?.value}pt`,
+              value: Number(e.target?.value),
             })
           }
           suffix="px"
