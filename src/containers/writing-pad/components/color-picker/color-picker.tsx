@@ -7,7 +7,7 @@ const StyledPickerContainer = styled.div`
   display: flex;
   align-items: center;
   min-width: 0;
-  height: 100%;
+  height: 3rem;
   padding: 0.5rem 0;
   background: #fff;
   border: 2px solid ${theme.colors.accent};

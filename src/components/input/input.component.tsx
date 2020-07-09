@@ -31,6 +31,7 @@ const StyledInput = styled.input<InputProps>`
 
 const StyledInputContainer = styled.div`
   display: flex;
+  height: 3rem;
   min-width: 100px;
   border: 2px solid ${theme.colors.accent};
   border-radius: 5px;

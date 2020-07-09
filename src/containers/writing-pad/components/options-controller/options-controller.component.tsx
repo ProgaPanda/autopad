@@ -6,6 +6,7 @@ import { Input } from "../../../../components/input/input.component";
 import { ColorPicker } from "../color-picker/color-picker";
 import { rgbToCmyk } from "../../../../shared/services/helpers";
 import { OptionsAction } from "../../writing-pad.service";
+import { Select } from "../../../../components/select/select.component";
 
 const t = WORDING.WRITING_PAD.OPTIONS_CONTROLLER;
 
@@ -40,13 +41,31 @@ export const OptionsController: React.FC<OptionsControllerProps> = ({
   return (
     <StyledOptionsContainer>
       <StyledOption>
-        <StyledOptionLabel>Text Color</StyledOptionLabel>
+        <StyledOptionLabel>Font color</StyledOptionLabel>
         <ColorPicker
           initialColor={{ r: 77, g: 77, b: 77 }}
           onColorChange={(color) => {
             dispatcher({
               type: "FONT_COLOR",
               value: rgbToCmyk(color),
+            });
+          }}
+        />
+      </StyledOption>
+
+      <StyledOption>
+        <StyledOptionLabel>Font size</StyledOptionLabel>
+        <Select
+          options={[
+            { value: 12, label: "Small (12px)" },
+            { value: 14, label: "Medium (14px)" },
+            { value: 16, label: "Large (16px)" },
+            { value: 20, label: "X Large (20px)" },
+          ]}
+          onChange={(e) => {
+            dispatcher({
+              type: "FONT_SIZE",
+              value: Number(e.value),
             });
           }}
         />

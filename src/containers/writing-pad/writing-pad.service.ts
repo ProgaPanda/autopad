@@ -44,10 +44,14 @@ export const initialOptions: DocumentGenerationOptions = {
   lineSpacing: 1.5,
 };
 
+/**
+ * document options actions type
+ */
 export type OptionsAction =
   | { type: "DOCUMENT_WIDTH"; value: number }
   | { type: "DOCUMENT_HEIGHT"; value: number }
-  | { type: "FONT_COLOR"; value: string };
+  | { type: "FONT_COLOR"; value: string }
+  | { type: "FONT_SIZE"; value: number };
 
 /**
  * document options reducer
@@ -77,6 +81,11 @@ export const optionsReducer = (
         fontColor: action.value,
       };
 
+    case "FONT_SIZE":
+      return {
+        ...state,
+        fontSize: action.value,
+      };
     default:
       return state;
   }
